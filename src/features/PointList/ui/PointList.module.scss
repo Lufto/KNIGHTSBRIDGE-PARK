@@ -1,0 +1,13 @@
+.point_list{
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 280px;
+	gap: 16px;
+}
+
+@media (max-width: 1240px) {
+	.point_list{
+		max-width: 100%;
+	}
+}
