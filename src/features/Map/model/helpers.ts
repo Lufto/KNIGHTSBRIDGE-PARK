@@ -1,5 +1,5 @@
 export const location = { center: [37.570034, 55.721255], zoom: 14 };
-export const apiKey = "608b1792-5528-44cc-8f40-945e675aeb25";
+export const apiKey = "6fe690d5-4d2f-4f11-9277-867bfa9b3292";
 
 export const points = [
   {
@@ -32,17 +32,17 @@ export const points = [
 			title: 'Красота и Здоровье'
 		}
   },
-	{
-    type: "shop",
-    id: "3",
-    geometry: {
-      type: "Circle",
-      coordinates: [38.591034, 56.721255],
-    },
-		description: {
-			title: 'Магазины'
-		}
-  },
+	// {
+  //   type: "shop",
+  //   id: "3",
+  //   geometry: {
+  //     type: "Circle",
+  //     coordinates: [38.591034, 56.721255],
+  //   },
+	// 	description: {
+	// 		title: 'Магазины'
+	// 	}
+  // },
 	{
     type: "education",
     id: "4",
@@ -65,17 +65,17 @@ export const points = [
 			title: 'Детсад'
 		}
   },
-  {
-    type: "movie",
-    id: "6",
-    geometry: {
-      type: "Circle",
-      coordinates: [37.685034, 54.701165],
-    },
-		description: {
-			title: 'Отдых и Развлечения',
-		}
-  },
+  // {
+  //   type: "movie",
+  //   id: "6",
+  //   geometry: {
+  //     type: "Circle",
+  //     coordinates: [37.685034, 54.701165],
+  //   },
+	// 	description: {
+	// 		title: 'Отдых и Развлечения',
+	// 	}
+  // },
 	{
     type: "beauty",
     id: "7",

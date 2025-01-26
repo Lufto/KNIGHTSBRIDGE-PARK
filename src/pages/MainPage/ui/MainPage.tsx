@@ -3,7 +3,7 @@ import { Header } from 'widgets/Header'
 import { Promo } from 'widgets/Promo'
 import { Territory } from 'widgets/Territory'
 
-const MainPage = () => {		
+const MainPage = () => {	
 	return (
 		<>
       <Header/>

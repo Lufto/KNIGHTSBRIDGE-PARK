@@ -9,10 +9,9 @@ interface TerritoryProps {
 
 export const Territory = ({className} : TerritoryProps) => {
   const { filter, counts, onFilter } = useTerritoryFilter();
-  
   return (
     <section className={classNames(cls.territory, {}, [className])}>
-      <div className="container">
+      <div className={classNames(cls.container, {}, ['container'])}>
         <div className={classNames(cls.territory__info, {}, [])}>
           <h2>НА КАРТЕ</h2>
           <PointList counts={counts} onFilter={onFilter} />

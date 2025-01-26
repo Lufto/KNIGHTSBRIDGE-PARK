@@ -1,4 +1,5 @@
-import { memo, useCallback, useMemo } from 'react'
+import { useCallback, useState } from 'react'
+import custom from 'shared/assets/map/customization.json'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
   YMap,
@@ -8,44 +9,32 @@ import {
   YMapDefaultSchemeLayer,
   YMapMarker
 } from 'ymap3-components'
-import custom from '../../../shared/assets/map/customization.json'
 import { apiKey, location as LOCATION, points } from '../model/helpers'
 import { GeoJSONPointFeature } from '../types/TMap'
 import cls from './Map.module.scss'
+
 
 interface MapProps {
   className?: string;
   filter: string;
 }
 
-// const useYandexMapScript = () => {
-//   useEffect(() => {
-//     if (typeof ymaps === 'undefined') {
-//       const script = document.createElement('script');
-//       script.src = `https://api-maps.yandex.ru/2.1/?apikey=${apiKey}&lang=en_RU`;
-//       script.async = true;
-//       script.onload = () => {
-//         // Инициализация карты
-//       };
-//       document.head.appendChild(script);
-//     }
-//   }, []);
-// };
-
-export const MapComponent = ({className, filter} : MapProps) => {
-  // useYandexMapScript()
-  const location = useMemo(() => LOCATION, []);
+export const Map = ({className, filter} : MapProps) => {
+  const [location] = useState(LOCATION);
 
   const marker = useCallback(
     (feature: GeoJSONPointFeature) => {
       if (feature.description?.title !== filter && filter !== 'Все' ) {
         return null;
       }
-
       return (
         <YMapMarker key={feature.id} coordinates={feature.geometry.coordinates}>
           <div
-            className={`mark ${feature.type} ${feature.type !== 'main' ? 'circle' : ''}`}
+            className={classNames(
+              cls.mark, 
+              { [cls.circle]: feature.type !== 'main' }, 
+              [cls[feature.type]]
+            )}
           >
           </div>
         </YMapMarker>
@@ -53,13 +42,49 @@ export const MapComponent = ({className, filter} : MapProps) => {
     },
     [filter]
   );
+
+  const cluster = useCallback(
+    (coordinates: number[], features: GeoJSONPointFeature[]) => {
+      let cur = 0
+
+      features.filter((feature) => {
+        const matchesFilter = feature.description?.title === filter || filter === 'Все';
+        if (matchesFilter) {
+          cur += 1;
+        }
+        return matchesFilter;
+      });
   
+      if (cur === 0) {
+        return null;
+      }
+
+      return (
+        <YMapMarker coordinates={coordinates}>
+            <div
+              className={classNames(
+                cls.mark, 
+                {}, 
+                [cls.circle]
+              )}
+            >
+              {cur}
+            </div>
+          </YMapMarker>
+      )
+    }
+    ,
+    [filter]
+  );
+
+
   return (
-    <div className={classNames(cls.map, {}, [className])}>
-       <YMapComponentsProvider apiKey={apiKey} lang="en_RU">
+    <div className={classNames(cls.map)}>
+      <YMapComponentsProvider apiKey={apiKey} lang="en_RU">
         <YMap key="map" location={location} mode="vector">
-          <YMapCustomClusterer
+        <YMapCustomClusterer
             marker={marker}
+            cluster={cluster}
             gridSize={64}
             features={points}
           />
@@ -68,7 +93,5 @@ export const MapComponent = ({className, filter} : MapProps) => {
         </YMap>
       </YMapComponentsProvider>
     </div>
-  )
+  );
 };
-
-export const Map = memo(MapComponent);
