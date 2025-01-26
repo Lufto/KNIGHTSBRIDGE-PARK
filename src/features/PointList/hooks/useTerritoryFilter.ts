@@ -1,8 +1,10 @@
-import { points } from 'features/Map'
+
 import { useCallback, useMemo, useState } from 'react'
+import { useAppSelector } from 'shared/store/hooks/hooks'
 
 export const useTerritoryFilter = () => {
   const [filter, setFilter] = useState('Все');
+  const points = useAppSelector((state) => state.points.points);
 
   const counts = useMemo(() => {
     const result: Record<string, number> = {};

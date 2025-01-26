@@ -48,6 +48,7 @@
     "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
     "react-i18next": "^15.2.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",

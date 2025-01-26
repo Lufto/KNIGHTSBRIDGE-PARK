@@ -1,8 +1,14 @@
-header{
+.header{
 	padding: 60px 0;
 	h1{
 		max-width: 570px;
 		color: var(--gary);
 		font: var(--font-xxl);
+	}
+	&__seatings{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
 	}
 }
