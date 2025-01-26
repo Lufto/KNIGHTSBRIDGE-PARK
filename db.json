@@ -1,0 +1,97 @@
+{
+  "sliderItems": [
+    {
+      "id": 1,
+      "title": "БОЛЬШАЯ БАЗА",
+      "description": "У нас самая большая база актуальных и эксклюзивных объектов элитной недвижимости",
+      "link": "#",
+      "linkText": "Посмотреть"
+    },
+    {
+      "id": 2,
+      "title": "НАДЁЖНОСТЬ",
+      "description": "Мы гарантируем абсолютную безопасность и конфиденциальность по сделкам",
+      "link": "#",
+      "linkText": "Узнать"
+    },
+    {
+      "id": 3,
+      "title": "ОПЫТ",
+      "description": "Наша команда имеет огромный опыт продаж недвижимости в элитном сегменте",
+      "link": "#",
+      "linkText": "Изучить"
+    },
+    {
+      "id": 4,
+      "title": "ЗАКРЫТЫЕ ПРЕДЛОЖЕНИЯ",
+      "description": "Есть объекты, которые предлагаем только мы",
+      "link": "#",
+      "linkText": "Получить"
+    }
+  ],
+  "points": [
+    {
+      "type": "main",
+      "id": "0",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [37.570034, 55.721255]
+      }
+    },
+    {
+      "type": "cafe",
+      "id": "1",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [37.55587, 55.719397]
+      },
+      "description": {
+        "title": "Отдых и Развлечения"
+      }
+    },
+    {
+      "type": "health",
+      "id": "2",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [37.566053, 55.72292]
+      },
+      "description": {
+        "title": "Красота и Здоровье"
+      }
+    },
+    {
+      "type": "education",
+      "id": "4",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [37.574786, 55.727885]
+      },
+      "description": {
+        "title": "Обучение"
+      }
+    },
+    {
+      "type": "kindergarten",
+      "id": "5",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [37.574276, 55.725763]
+      },
+      "description": {
+        "title": "Детсад"
+      }
+    },
+    {
+      "type": "beauty",
+      "id": "7",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [37.562442, 55.717382]
+      },
+      "description": {
+        "title": "Красота и Здоровье"
+      }
+    }
+  ]
+}

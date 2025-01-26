@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 
-import { sliderItems } from 'widgets/Footer/ui/Footer'
+import { SliderItem } from 'shared/store/types/TStore'
 import cls from './Slider.module.scss'
 
 interface SliderProps {
 	className?: string;
-	items: sliderItems[];
+	items: SliderItem[];
 	sliderRef: React.RefObject<HTMLUListElement>;
 }
 

@@ -1,28 +1,24 @@
 import { Slider, useSlider } from 'features/Slider'
+import { useEffect } from 'react'
 import RowLeftIcon from 'shared/assets/icons/slider/row-left.svg'
 import RowRightIcon from 'shared/assets/icons/slider/row-right.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { fetchSliderItems } from 'shared/store/actions'
+import { useAppDispatch, useAppSelector } from 'shared/store/hooks/hooks'
 import cls from './Footer.module.scss'
 
 interface FooterProps {
 	className?: string;
 }
 
-export type sliderItems = {
-	title: string;
-	description: string;
-	link: string;
-	linkText: string;
-}
-
-export const sliderItems: sliderItems[] = [
-  { title: "БОЛЬШАЯ БАЗА", description: "У нас самая большая база актуальных и эксклюзивных объектов элитной недвижимости", link: "#", linkText: "Посмотреть" },
-  { title: "НАДЁЖНОСТЬ", description: "Мы гарантируем абсолютную безопасность и конфиденциальность по сделкам", link: "#", linkText: "Узнать" },
-  { title: "ОПЫТ", description: "Наша команда имеет огромный опыт продаж недвижимости в элитном сегменте", link: "#", linkText: "Изучить" },
-  { title: "ЗАКРЫТЫЕ ПРЕДЛОЖЕНИЯ", description: "Есть объекты, которые предлагаем только мы", link: "#", linkText: "Получить" },
-];
-
 export const Footer = ({className} : FooterProps) => {
+	const dispatch = useAppDispatch();
+	const sliderItems = useAppSelector((state) => state.slider.sliderItems);
+	
+	useEffect(() => {
+    dispatch(fetchSliderItems())
+  }, [dispatch]);
+
 	const { sliderRef, nextSlide, prevSlide, currentIndex, visibleCount } = useSlider(sliderItems.length);
 
 	return (

@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import { useState } from 'react'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import cls from './Promo.module.scss'
 
 interface PromoProps {
@@ -62,12 +63,12 @@ export const Promo = ({className} : PromoProps) => {
           <div className={cls.promo__picture_first}></div>
 
           <div className={cls.promo__picture_wrap}>
-            <a href="#" className={cls.promo__picture_second}>
+            <AppLink to={'about'} className={cls.promo__picture_second}>
               Презентация <br /> ЖК Knightsbridge Private Рark
-            </a>
-            <a href="#" className={cls.promo__picture_second}>
+            </AppLink>
+            <AppLink to={'about'} className={cls.promo__picture_second}>
               Типы планировок апартаментов
-            </a>
+            </AppLink>
           </div>
         </div>
       </div>
