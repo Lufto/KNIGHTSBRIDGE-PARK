@@ -38,3 +38,21 @@
 		}
 	}
 }
+
+@media (max-width: 512px) {
+	.territory{
+		margin: 0;
+	}
+}
+
+@media (max-width: 375px) {
+	.territory{
+		margin: 0;
+		.container{
+			padding: 0;
+		}
+		&__info{
+			padding: 0 15px;
+		}
+	}
+}

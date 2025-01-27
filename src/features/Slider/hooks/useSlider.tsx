@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
 interface UseSliderReturn {
   sliderRef: React.RefObject<HTMLUListElement>;
@@ -6,6 +6,9 @@ interface UseSliderReturn {
   visibleCount: number;
   nextSlide: () => void;
   prevSlide: () => void;
+  handleTouchStart: (e: React.TouchEvent) => void;
+  handleTouchMove: (e: React.TouchEvent) => void;
+  handleTouchEnd: () => void;
 }
 
 export const useSlider = (itemsCount: number): UseSliderReturn => {
@@ -18,7 +21,6 @@ export const useSlider = (itemsCount: number): UseSliderReturn => {
     if (currentIndex < itemsCount - visibleCount) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
-
   };
 
   const prevSlide = () => {
@@ -27,67 +29,57 @@ export const useSlider = (itemsCount: number): UseSliderReturn => {
     }
   };
 
-	useEffect(() => {
+  useEffect(() => {
     const updateSlider = () => {
       if (sliderRef.current) {
         const itemWidth = sliderRef.current.children[0]?.clientWidth || 0;
-
         const computedGap = parseInt(window.getComputedStyle(sliderRef.current).gap || '100px', 10);
         setGap(computedGap);
-
         setVisibleCount(Math.floor(sliderRef.current.offsetWidth / (itemWidth + gap)));
-
 
         const totalWidth = itemWidth * itemsCount + gap * (itemsCount - 1);
         const maxTranslateX = totalWidth - sliderRef.current.offsetWidth;
         const translateX = Math.min(currentIndex * (itemWidth + gap), maxTranslateX);
 
         sliderRef.current.style.transform = `translateX(-${translateX}px)`;
-        }
-      }
-
-      updateSlider();
-
-      window.addEventListener("resize", updateSlider);
-      return () => {
-        window.removeEventListener("resize", updateSlider);
-      };
-    }, [currentIndex, itemsCount]);
-
-
-  useEffect(() => {
-    if (!sliderRef.current) return;
-
-    let startX = 0;
-    let endX = 0;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      startX = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      endX = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-      if (startX - endX > 50) {
-        nextSlide();
-      } else if (endX - startX > 50) {
-        prevSlide();
       }
     };
 
-    const sliderElement = sliderRef.current;
-    sliderElement.addEventListener("touchstart", handleTouchStart);
-    sliderElement.addEventListener("touchmove", handleTouchMove);
-    sliderElement.addEventListener("touchend", handleTouchEnd);
+    updateSlider();
 
+    window.addEventListener("resize", updateSlider);
     return () => {
-      sliderElement.removeEventListener("touchstart", handleTouchStart);
-      sliderElement.removeEventListener("touchmove", handleTouchMove);
-      sliderElement.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("resize", updateSlider);
     };
-  }, [currentIndex]);
+  }, [currentIndex, itemsCount]);
 
-  return { sliderRef, currentIndex, nextSlide, prevSlide, visibleCount };
+  const startX = useRef(0);
+  const endX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    endX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (startX.current - endX.current > 50) {
+      nextSlide();
+    } else if (endX.current - startX.current > 50) {
+      prevSlide();
+    }
+  };
+
+  return { 
+    sliderRef, 
+    currentIndex, 
+    nextSlide, 
+    prevSlide, 
+    visibleCount, 
+    handleTouchStart, 
+    handleTouchMove, 
+    handleTouchEnd 
+  };
 };

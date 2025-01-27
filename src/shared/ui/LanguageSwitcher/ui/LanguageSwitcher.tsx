@@ -1,6 +1,5 @@
-import { Theme, useTheme } from 'app/providers/ThemeProvider'
+import { useTheme } from 'app/providers/ThemeProvider'
 import DarkIcon from 'shared/assets/icons/lang/lang-dark.svg'
-import LightIcon from 'shared/assets/icons/lang/lang-light.svg'
 import i18n from 'shared/config/i18n/i18n'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
@@ -23,7 +22,7 @@ export const LanguageSwitcher = ({className} : LanguageSwitcherProps) => {
 			theme={ThemeButton.CLEAR}
 			onClick={toggle}
 		>
-			{theme === Theme.DARK ? <DarkIcon/> : <LightIcon/>}
+			<DarkIcon/>
 		</Button>
 	)
 };

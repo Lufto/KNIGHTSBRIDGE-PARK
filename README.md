@@ -1,3 +1,7 @@
-npm install
-json-server --watch db.json --port 3001
-npm run start
+Для запуска приложения нужно запустить эти команды
+
+npm i
+
+npm run json-server
+
+npm run start:prod

@@ -1,13 +1,14 @@
 .gallery{
 	text-align: center;
-
+	background: var(--bg-light-grey);
+	padding: 60px 0 100px 0;
 	&__container{
 		flex-direction: column;
 	}
 
 	&__title{
-		margin: 0 auto;
-		color: var(--gary);
+		margin: 20px auto;
+		color: var(--light-black);
 		font: var(--font-xxl);
 	}
 
@@ -29,7 +30,5 @@
 				object-fit: cover;
 			}
 		}
-	
-		
 	}
 }

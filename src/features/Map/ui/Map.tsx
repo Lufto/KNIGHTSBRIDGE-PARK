@@ -10,10 +10,9 @@ import {
   YMapDefaultSchemeLayer,
   YMapMarker
 } from 'ymap3-components'
-import { apiKey } from '../model/helpers'
+import { LOCATION } from '../model/helpers'
 import { GeoJSONPointFeature } from '../types/TMap'
 import cls from './Map.module.scss'
-
 
 interface MapProps {
   className?: string;
@@ -21,10 +20,9 @@ interface MapProps {
 }
 
 export const Map = ({className, filter} : MapProps) => {
-  const [location] = useState({ center: [37.570034, 55.721255], zoom: 14 });
+  const [location] = useState(LOCATION);
 
   const points = useAppSelector((state) => state.points.points);
-
 
   const marker = useCallback(
     (feature: GeoJSONPointFeature) => {
@@ -84,7 +82,7 @@ export const Map = ({className, filter} : MapProps) => {
 
   return (
     <div className={classNames(cls.map)}>
-      <YMapComponentsProvider apiKey={apiKey} lang="en_RU">
+      <YMapComponentsProvider apiKey={process.env.API_KEY_YMAP} lang="en_RU">
         <YMap key="map" location={location} mode="vector">
         <YMapCustomClusterer
             marker={marker}

@@ -1,9 +1,14 @@
+export interface LocalizedText {
+  ru: string;
+  en: string;
+}
+
 export interface SliderItem {
   id: number;
-  title: string;
-  description: string;
+  title: LocalizedText;
+  description: LocalizedText;
   link: string;
-  linkText: string;
+  linkText: LocalizedText;
 }
 
 export interface Point {
@@ -14,7 +19,8 @@ export interface Point {
     coordinates: [number, number];
   };
   description?: {
-    title: string;
+    title_ru: string;
+    title_en: string;
   };
 }
 

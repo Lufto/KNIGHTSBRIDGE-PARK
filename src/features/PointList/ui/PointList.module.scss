@@ -6,6 +6,15 @@
 	gap: 16px;
 }
 
+.map__item_active{
+	background: var(--secondary);
+	border: 1px solid var(--white);
+	color: var(--white);
+	span{
+		color: var(--white);
+	}
+}
+
 @media (max-width: 1240px) {
 	.point_list{
 		max-width: 100%;

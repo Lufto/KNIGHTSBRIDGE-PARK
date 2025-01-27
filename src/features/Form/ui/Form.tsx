@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { IFormInput } from '../types/TForm'
 import cls from './Form.module.scss'
 
@@ -9,6 +10,7 @@ className?: string;
 }
 
 export const Form = ({className} : FormProps) => {
+  const { t } = useTranslation('form');
 	const { control, handleSubmit, reset } = useForm<IFormInput>({
     defaultValues: {
       firstName: '',
@@ -30,7 +32,7 @@ export const Form = ({className} : FormProps) => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<div className={classNames(cls.form__wrap)}>
-        <label htmlFor="firstName">Имя</label>
+        <label htmlFor="firstName">{t("Имя")}</label>
         <Controller
           name="firstName"
           control={control}
@@ -39,7 +41,7 @@ export const Form = ({className} : FormProps) => {
       </div>
 
       <div className={classNames(cls.form__wrap)}>
-        <label htmlFor="lastName">Фамилия</label>
+        <label htmlFor="lastName">{t("Фамилия")}</label>
         <Controller
           name="lastName"
           control={control}
@@ -48,7 +50,7 @@ export const Form = ({className} : FormProps) => {
       </div>
 
       <div className={classNames(cls.form__wrap)}>
-        <label htmlFor="phone">Номер телефона</label>
+        <label htmlFor="phone">{t("Номер телефона")}</label>
         <Controller
           name="phone"
           control={control}
@@ -57,7 +59,7 @@ export const Form = ({className} : FormProps) => {
       </div>
 
       <div className={classNames(cls.form__wrap)}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{t("Email")}</label>
         <Controller
           name="email"
           control={control}
@@ -65,7 +67,7 @@ export const Form = ({className} : FormProps) => {
         />
       </div>
 
-      <button type="submit">Отправить</button>
+      <button type="submit">{t("Отправить")}</button>
 		</form>
 	)
 };

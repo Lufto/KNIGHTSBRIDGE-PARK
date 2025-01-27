@@ -5,7 +5,7 @@ import { Point, PointsActionTypes, SET_POINTS, SET_SLIDER_ITEMS, SliderActionTyp
 export const fetchSliderItems = () => async (dispatch: AppDispatch) => {
   try {
     const { data } = await getSliderItems();
-    dispatch(setSliderItems(data));  // После получения данных диспатчим экшен
+    dispatch(setSliderItems(data));  
   } catch (error) {
     console.error("Failed to fetch slider items", error);
   }
@@ -14,13 +14,11 @@ export const fetchSliderItems = () => async (dispatch: AppDispatch) => {
 export const fetchPoints = () => async (dispatch: AppDispatch) => {
   try {
     const { data } = await getPoints();
-    dispatch(setPoints(data));  // После получения данных диспатчим экшен
+    dispatch(setPoints(data)); 
   } catch (error) {
     console.error("Failed to fetch points", error);
   }
 };
-
-// Синхронные экшены с типами
 
 export const setSliderItems = (items: SliderItem[]): SliderActionTypes => ({
   type: SET_SLIDER_ITEMS,

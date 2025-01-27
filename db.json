@@ -2,33 +2,70 @@
   "sliderItems": [
     {
       "id": 1,
-      "title": "БОЛЬШАЯ БАЗА",
-      "description": "У нас самая большая база актуальных и эксклюзивных объектов элитной недвижимости",
+      "title": {
+        "ru": "БОЛЬШАЯ БАЗА",
+        "en": "LARGE DATABASE"
+      },
+      "description": {
+        "ru": "У нас самая большая база актуальных и эксклюзивных объектов элитной недвижимости",
+        "en": "We have the largest base of current and exclusive luxury real estate listings"
+      },
       "link": "#",
-      "linkText": "Посмотреть"
+      "linkText": {
+        "ru": "Посмотреть",
+        "en": "View"
+      }
     },
     {
       "id": 2,
-      "title": "НАДЁЖНОСТЬ",
-      "description": "Мы гарантируем абсолютную безопасность и конфиденциальность по сделкам",
+      "title": {
+        "ru": "НАДЁЖНОСТЬ",
+        "en": "RELIABILITY"
+      },
+      "description": {
+        "ru": "Мы гарантируем абсолютную безопасность и конфиденциальность по сделкам",
+        "en": "We guarantee absolute security and confidentiality in transactions"
+      },
       "link": "#",
-      "linkText": "Узнать"
+      "linkText": {
+        "ru": "Узнать",
+        "en": "Learn More"
+      }
     },
     {
       "id": 3,
-      "title": "ОПЫТ",
-      "description": "Наша команда имеет огромный опыт продаж недвижимости в элитном сегменте",
+      "title": {
+        "ru": "ОПЫТ",
+        "en": "EXPERIENCE"
+      },
+      "description": {
+        "ru": "Наша команда имеет огромный опыт продаж недвижимости в элитном сегменте",
+        "en": "Our team has extensive experience in selling real estate in the premium segment"
+      },
       "link": "#",
-      "linkText": "Изучить"
+      "linkText": {
+        "ru": "Изучить",
+        "en": "Explore"
+      }
     },
     {
       "id": 4,
-      "title": "ЗАКРЫТЫЕ ПРЕДЛОЖЕНИЯ",
-      "description": "Есть объекты, которые предлагаем только мы",
+      "title": {
+        "ru": "ЗАКРЫТЫЕ ПРЕДЛОЖЕНИЯ",
+        "en": "EXCLUSIVE OFFERS"
+      },
+      "description": {
+        "ru": "Есть объекты, которые предлагаем только мы",
+        "en": "We have properties that are available only through us"
+      },
       "link": "#",
-      "linkText": "Получить"
+      "linkText": {
+        "ru": "Получить",
+        "en": "Get"
+      }
     }
-  ],
+  ]
+  ,
   "points": [
     {
       "type": "main",
@@ -46,7 +83,8 @@
         "coordinates": [37.55587, 55.719397]
       },
       "description": {
-        "title": "Отдых и Развлечения"
+        "title_ru": "Отдых и Развлечения",
+        "title_en": "Leisure and Entertainment"
       }
     },
     {
@@ -57,7 +95,8 @@
         "coordinates": [37.566053, 55.72292]
       },
       "description": {
-        "title": "Красота и Здоровье"
+        "title_ru": "Красота и Здоровье",
+        "title_en": "Beauty and Health"
       }
     },
     {
@@ -68,7 +107,8 @@
         "coordinates": [37.574786, 55.727885]
       },
       "description": {
-        "title": "Обучение"
+        "title_ru": "Обучение",
+        "title_en": "Education"
       }
     },
     {
@@ -79,7 +119,8 @@
         "coordinates": [37.574276, 55.725763]
       },
       "description": {
-        "title": "Детсад"
+        "title_ru": "Детсад",
+        "title_en": "Kindergarten"
       }
     },
     {
@@ -90,7 +131,8 @@
         "coordinates": [37.562442, 55.717382]
       },
       "description": {
-        "title": "Красота и Здоровье"
+        "title_ru": "Красота и Здоровье",
+        "title_en": "Beauty and Health"
       }
     }
   ]

@@ -9,5 +9,28 @@
 		color: var(--primary);
 		margin-left: 5px;
 	}
-
+	&:hover{
+		background: var(--secondary);
+		border: 1px solid var(--white);
+		color: var(--white);
+		span{
+			color: var(--white);
+		}
+	}
+	&:active{
+		background: var(--secondary);
+		border: 1px solid var(--secondary);
+		color: var(--white);
+		span{
+			color: var(--white);
+		}
+	}
+	&_active{
+		background: var(--secondary);
+		border: 1px solid var(--white);
+		color: var(--white);
+		span{
+			color: var(--white);
+		}
+	}
 }

@@ -10,7 +10,7 @@ const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 const store = createStore(
   rootReducer,
   composeEnhancers(
-    applyMiddleware(thunk)  // Подключаем middleware (например, redux-thunk)
+    applyMiddleware(thunk)
   )
 );
 

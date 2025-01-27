@@ -4,6 +4,7 @@ import { Promo } from 'widgets/Promo'
 import { Territory } from 'widgets/Territory'
 
 const MainPage = () => {	
+
 	return (
 		<>
       <Header/>

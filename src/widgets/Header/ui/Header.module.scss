@@ -12,3 +12,13 @@
 		gap: 20px;
 	}
 }
+
+@media (max-width: 512px){
+	.header{
+		&__container{
+			display: flex;
+			gap:40px;
+			flex-direction: column;
+		}
+	}
+}

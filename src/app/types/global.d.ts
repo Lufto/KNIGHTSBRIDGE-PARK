@@ -19,3 +19,10 @@ declare module "*.json" {
 }
 
 declare const __IS__DEV__: boolean;
+
+declare namespace NodeJS {
+  export interface ProcessEnv {
+    API_KEY_YMAP: string;
+    API_BASE_PATH: string;
+  }
+}

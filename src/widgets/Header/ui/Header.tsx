@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 
+import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher'
@@ -12,13 +13,13 @@ className?: string;
 
 export const Header = ({className} : HeaderProps) => {
 	const location = useLocation();
-
+	const { t } = useTranslation('header');
 	return (
 		<header className={classNames(cls.header, {}, [className])}>
-			<div className="container">
+			<div className={classNames(cls.header__container, {}, ["container"])}>
 				<AppLink to={'/'}>
 					<h1>
-						KNIGHTSBRIDGE PRIVATE PARK – ЭЛИТНЫЙ РАЙОН ЛОНДОНА В ЦЕНТРЕ 
+						{t('шапка')}
 					</h1>
 				</AppLink>
 				

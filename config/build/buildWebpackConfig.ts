@@ -14,8 +14,28 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 		output: {
 			path: paths.build,
 			filename: '[name].[contenthash].js',
+			chunkFilename: 'js/[name].[contenthash].js',
 			clean: true,
 		},
+		optimization: {
+			usedExports: true,
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+            priority: 10,
+          },
+          default: {
+            minChunks: 1,
+            priority: 5,
+            reuseExistingChunk: true, 
+          },
+        },
+      },
+    },
 		plugins: buildPlugins(options),
 		module: {
 			rules: buildLoader(options),
