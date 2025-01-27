@@ -164,6 +164,7 @@
 			justify-content: center;
 			align-items: center;
 			width: 100%;
+			top: 500px;
 			&_first{
 				width: calc(100vw - 30px);
 
@@ -192,7 +193,7 @@
 @media (max-width: 405px) {
 	.active {
 		.promo__picture{
-			top:640px;
+			top: 560px;
 		}
 	}
 
@@ -214,7 +215,6 @@
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			top: 580px;
 			&_first{
 				width: calc(100vw - 30px);
 
@@ -225,11 +225,12 @@
 			}
 			&_second{
 				width: 100%;
+				font: var();
 				&:first-of-type{
-					padding: 25px 19px;
+					padding: 40px 19px;
 				}
 				&:last-of-type{
-					padding: 25px 19px;
+					padding: 40px 19px;
 				}
 			}
 		}
